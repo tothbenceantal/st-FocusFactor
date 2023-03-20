@@ -1,4 +1,4 @@
 streamlit
 datetime
 pandas
-PIL
+Pillow==8.4.0
