@@ -179,7 +179,9 @@ with tab2:
 
 with tab3:
 
-    st.title('Meet the Team')
+    st.markdown\
+        ("<h1 style='text-align: center; color: black;'>Meet the team</h1>", \
+        unsafe_allow_html=True)
 
     col33, col1, col2, col34 = st.columns(4)
 
@@ -190,9 +192,7 @@ with tab3:
         #st.write(os.getcwd())
         image_antonella = Image.open('raw_data/Antonella.jpg')
         st.image(image_antonella, width=250)
-        st.markdown('''
-
-                    ''')
+        st.markdown('##')
         st.subheader("Mahar Albaher Ali")
         image_mahar = Image.open('raw_data/Mahar.jpg')
         st.image(image_mahar, width=250)
@@ -201,9 +201,7 @@ with tab3:
         st.subheader("Daiana Rinja")
         image_daiana = Image.open('raw_data/Daiana.png')
         st.image(image_daiana, width=250)
-        st.markdown('''
-
-                    ''')
+        st.markdown('##')
         st.subheader("Bence Tóth")
         image_bence = Image.open('raw_data/Bence.jpg')
         st.image(image_bence, width=250)
