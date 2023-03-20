@@ -1,7 +1,7 @@
-sys
-os
+# sys
+# os
 streamlit
 datetime
-numpy
+#numpy
 pandas
 PIL.Image
