@@ -28,16 +28,16 @@ df.index = df["Date"].apply(lambda x: datetime.datetime.strptime(x, "%Y-%m-%d"))
 
 with tab1:
     st.markdown("## The impact of all tweets per day tweeted \
-    on the Russian invasion in Ukraine compared to those about the World Cup")
+    on the Russian invasion of Ukraine compared to those about the World Cup")
     col99, col98, col2, col3 = st.columns(4)
     with col99:
         d1 = st.date_input(
-            "From when",
+            "From",
             datetime.datetime(2022, 10, 1))
 
     with col98:
         d2 = st.date_input(
-            "To when",
+            "To",
             datetime.datetime(2023, 1, 31))
 
 
@@ -57,71 +57,172 @@ with tab1:
     # this makes the ukr charts
     if chart_choice == 'Ukraine':
         if rep_choice == "Count":
-            st.markdown(f" ### Daily tweet counts from {d1} to {d2}\
-                regarding twitter discussions on the war in Ukraine")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily TWEET COUNTS</h3>", \
+                unsafe_allow_html=True)
             st.line_chart(filtered_df["UKR_Daily_Tweet_Count"])
         elif rep_choice == "Score":
-            st.markdown(f"### Daily sum of the total impact score from  **{d1}** \
-                to **{d2}** regarding twitter discussions on the war in Ukraine")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily RELATIVE IMPACT SCORES</h3>", \
+                unsafe_allow_html=True)
             st.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"])
         else:
-            st.markdown(f"### Daily total impact scores and tweet counts from {d1} \
-                to {d2} regarding twitter discussions on the war in Ukraine")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily ...</h3>", \
+                unsafe_allow_html=True)
             # this gets both impact sum and tweetcount next to each other
             col4, col5 = st.columns(2)
-            col5.line_chart(filtered_df["UKR_Daily_Tweet_Count"])
-            col4.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"])
+
+            with col4:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Count</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["UKR_Daily_Tweet_Count"])
+
+            with col5:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Relative Impact Score</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"])
 
     #this ones gets the wc charts
     elif chart_choice == 'World Cup':
         if rep_choice == "Count":
-            st.markdown(f" ### Daily tweet counts from {d1} to {d2} \
-                regarding twitter discussions on the World Cup")
-            st.line_chart(filtered_df["WC_Daily_Tweet_Count"])#,x="Date",y="Tweet_count")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily TWEET COUNTS</h3>", \
+                unsafe_allow_html=True)
+            st.line_chart(filtered_df["WC_Daily_Tweet_Count"])
         elif rep_choice == "Score":
-            st.markdown(f"### Daily sum of the total impact score from  **{d1}** \
-                to **{d2}** regarding twitter discussions on the World Cup")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily RELATIVE IMPACT SCORES</h3>", \
+                unsafe_allow_html=True)
             st.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
         else:
-            st.markdown(f"### Daily total impact scores and tweet counts from {d1} \
-                to {d2} regarding twitter discussions on the World Cup")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily ...</h3>", \
+                unsafe_allow_html=True)
             # this gets both impact sum and tweetcount next to each other
-            col4, col5 = st.columns(2)
-            col5.line_chart(filtered_df["WC_Daily_Tweet_Count"])
-            col4.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
+            col41, col51 = st.columns(2)
+            with col41:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Count</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["WC_Daily_Tweet_Count"])
 
+            with col51:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Relative Impact Score</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
     else:
         if rep_choice == "Count":
-            st.markdown(f" ### Daily tweet counts from {d1} to {d2}")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily TWEET COUNTS</h3>", \
+                unsafe_allow_html=True)
             col77, col78 = st.columns(2)
-            col77.line_chart(filtered_df["WC_Daily_Tweet_Count"])
-            col78.line_chart(filtered_df["UKR_Daily_Tweet_Count"])
+
+            with col78:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>RUSSIAN INVASION OF UKRAINE</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["UKR_Daily_Tweet_Count"])
+
+            with col77:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>FIFA WORLD CUP 2022</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["WC_Daily_Tweet_Count"])
+
         elif rep_choice == "Score":
-            st.markdown(f"### Daily sum of the total impact score from {d1} to {d2}")
+            st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Daily RELATIVE IMPACT SCORES for...</h3>", \
+                unsafe_allow_html=True)
             col79, col80 = st.columns(2)
-            col79.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
-            col80.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
+            with col79:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>RUSSIAN INVASION OF UKRAINE</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"])
+
+            with col80:
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>FIFA WORLD CUP 2022</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
         else:
-            st.markdown(f"### Daily total impact scores and tweet counts from {d1} \
-                to {d2}")
-            col81, col82 = st.columns(2)
+
+            col70, col81, col82 = st.columns(3)
+            with col70:
+                st.markdown\
+                (f"<h3 style='text-align: center ; color: black;\
+                    '>Daily ...</h3>", \
+                unsafe_allow_html=True)
+                st.markdown("#")
+                st.markdown("#")
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>RUSSIAN INVASION OF UKRAINE</h3>", \
+                unsafe_allow_html=True)
+                st.markdown("#")
+                st.markdown("#")
+                st.markdown("#")
+                st.markdown("#")
+                st.markdown("#")
+                st.markdown("#")
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>FIFA WORLD CUP 2022</h3>", \
+                unsafe_allow_html=True)
             # this gets both impact sum and tweetcount next to each other
             with col81:
-                st.line_chart(filtered_df["WC_Daily_Tweet_Count"])
-                st.line_chart(filtered_df["UKR_Daily_Tweet_Count"])
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Count</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["UKR_Daily_Tweet_Count"],
+                              width=125, height=250)
+                st.line_chart(filtered_df["WC_Daily_Tweet_Count"],
+                              width=125, height=250)
+
             with col82:
-                st.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
-                st.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"])
+                st.markdown\
+                (f"<h3 style='text-align: center; color: black;\
+                    '>Realtive Impact Score</h3>", \
+                unsafe_allow_html=True)
+                st.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"],
+                               width=125, height=250)
+                st.line_chart(filtered_df["WC_Daily_Relative_Impact_score"],
+                              width=125, height=250)
 
 
 with tab2:
     #Here we will have Daiana's streamlit page
 
 
-    st.markdown("# The most talked about topics regarding the war in Ukraine")
+    st.markdown("# The most talked about topics regarding the Russian invasion\
+        of Ukraine")
 
     # Customization for sidebar
-    st.markdown('<style>div[class="css-6qob1r e1fqkh3o3"] { background: url("https://media2.giphy.com/media/46hpy8xB3MiHfruixn/giphy.gif");background-repeat: no-repeat;background-size:350%;border:1px solid #36454F; border-top:none;} </style>', unsafe_allow_html=True)
+    st.markdown('<style>div[class="css-6qob1r e1fqkh3o3"] { background: \
+        url("https://media2.giphy.com/media/46hpy8xB3MiHfruixn/giphy.gif");\
+        background-repeat: no-repeat;background-size:350%;border:1px solid \
+        #36454F; border-top:none;} </style>', unsafe_allow_html=True)
 
     # Hiding the Footer
     hide_st_style =" <style>footer {visibility: hidden;}</style>"
