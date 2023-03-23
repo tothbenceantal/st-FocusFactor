@@ -1,0 +1,41 @@
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.4.0/pyLDAvis/js/ldavis.v1.0.0.css">
+
+
+<div id="ldavis_el45271405947783998886316367672" style="background-color:white;"></div>
+<script type="text/javascript">
+
+var ldavis_el45271405947783998886316367672_data = {"mdsDat": {"x": [0.3289232566295399, -0.21227802591391687, -0.09940942951910654, -0.017235801196516527], "y": [0.07467376173677807, 0.25560501029903804, -0.2921225621956515, -0.03815620984016471], "topics": [1, 2, 3, 4], "cluster": [1, 1, 1, 1], "Freq": [42.88262150947105, 19.520452066920775, 19.092691933357802, 18.504234490250358]}, "tinfo": {"Term": ["special military operation", "air defense systems", "russian terror attack", "russia terrorist state", "ukrainian air defense", "black sea fleet", "russia terrorist state", "ukrainian air defense", "black sea fleet", "russian terror attack", "air defense systems", "special military operation", "special military operation", "black sea fleet", "ukrainian air defense", "russian terror attack", "air defense systems", "russia terrorist state", "air defense systems", "black sea fleet", "ukrainian air defense", "russian terror attack", "special military operation", "russia terrorist state", "russian terror attack", "black sea fleet", "ukrainian air defense", "air defense systems", "special military operation", "russia terrorist state"], "Freq": [18.0, 17.0, 17.0, 19.0, 13.0, 10.0, 18.844853910864817, 12.88058733166795, 9.455271993561366, 0.17307519809927124, 0.1729555311097849, 0.1730849451489162, 17.41326093882996, 0.3176318126083174, 0.31334121078218635, 0.3122308973791872, 0.31225121808002443, 0.31332099916968975, 16.96066222292934, 0.3215642689118792, 0.3215545913031588, 0.3203561673885374, 0.32040548292895715, 0.3215327310511597, 16.283980219373667, 0.34171681349446875, 0.34578512099178, 0.3403275228119196, 0.3403595664456266, 0.3416796681928262], "Total": [18.0, 17.0, 17.0, 19.0, 13.0, 10.0, 19.821387309278492, 13.861268254745074, 10.436184888576031, 17.089642482240663, 17.78619649493107, 18.24711093335346, 18.24711093335346, 10.436184888576031, 13.861268254745074, 17.089642482240663, 17.78619649493107, 19.821387309278492, 17.78619649493107, 10.436184888576031, 13.861268254745074, 17.089642482240663, 18.24711093335346, 19.821387309278492, 17.089642482240663, 10.436184888576031, 13.861268254745074, 17.78619649493107, 18.24711093335346, 19.821387309278492], "Category": ["Default", "Default", "Default", "Default", "Default", "Default", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic1", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic2", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic3", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4", "Topic4"], "logprob": [6.0, 5.0, 4.0, 3.0, 2.0, 1.0, -0.7943, -1.1748, -1.4839, -5.4845, -5.4852, -5.4845, -0.0863, -4.0904, -4.104, -4.1075, -4.1074, -4.104, -0.0904, -4.0559, -4.0559, -4.0597, -4.0595, -4.056, -0.0998, -3.9638, -3.952, -3.9679, -3.9678, -3.9639], "loglift": [6.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.7962, 0.7733, 0.748, -3.7458, -3.7864, -3.8113, 1.5869, -1.8584, -2.1559, -2.3688, -2.4087, -2.5136, 1.6083, -1.824, -2.1078, -2.3209, -2.3863, -2.4656, 1.6389, -1.7319, -2.0039, -2.2691, -2.2946, -2.3735]}, "token.table": {"Topic": [3, 1, 1, 4, 2, 1], "Freq": [0.955797379436625, 0.862384108377751, 0.958560553988368, 0.936239597558989, 0.931654334874794, 0.9378651189114503], "Term": ["air defense systems", "black sea fleet", "russia terrorist state", "russian terror attack", "special military operation", "ukrainian air defense"]}, "R": 6, "lambda.step": 0.01, "plot.opts": {"xlab": "PC1", "ylab": "PC2"}, "topic.order": [3, 2, 1, 4]};
+
+function LDAvis_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(LDAvis) !== "undefined"){
+   // already loaded: just create the visualization
+   !function(LDAvis){
+       new LDAvis("#" + "ldavis_el45271405947783998886316367672", ldavis_el45271405947783998886316367672_data);
+   }(LDAvis);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/LDAvis
+   require.config({paths: {d3: "https://d3js.org/d3.v5"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      LDAvis_load_lib("https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.4.0/pyLDAvis/js/ldavis.v3.0.0.js", function(){
+        new LDAvis("#" + "ldavis_el45271405947783998886316367672", ldavis_el45271405947783998886316367672_data);
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & LDAvis
+    LDAvis_load_lib("https://d3js.org/d3.v5.js", function(){
+         LDAvis_load_lib("https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.4.0/pyLDAvis/js/ldavis.v3.0.0.js", function(){
+                 new LDAvis("#" + "ldavis_el45271405947783998886316367672", ldavis_el45271405947783998886316367672_data);
+            })
+         });
+}
+</script>

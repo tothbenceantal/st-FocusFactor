@@ -232,7 +232,7 @@ with tab2:
 
 
 
-    with open('raw_data/model_plot_cleaned_2.html', 'r') as f:
+    with open('raw_data/model_plot_final.html', 'r') as f:
         html_string = f.read()
     components.v1.html(html_string, width=1300,  height=800, scrolling=False)
 
