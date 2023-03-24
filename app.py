@@ -27,7 +27,7 @@ df = pd.read_csv("raw_data/FocusFactor-streamlit_test.csv")
 df.index = df["Date"].apply(lambda x: datetime.datetime.strptime(x, "%Y-%m-%d"))
 
 with tab1:
-    st.markdown("## The impact of all tweets per day tweeted \
+    st.markdown("### The impact tweets \
     on the Russian invasion of Ukraine compared to those about the World Cup")
     col99, col98, col2, col3 = st.columns(4)
     with col99:
@@ -203,7 +203,7 @@ with tab1:
             with col82:
                 st.markdown\
                 (f"<h3 style='text-align: center; color: black;\
-                    '>Realtive Impact Score</h3>", \
+                    '>Relative Impact Score</h3>", \
                 unsafe_allow_html=True)
                 st.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"],
                                width=125, height=250)
@@ -244,27 +244,29 @@ with tab3:
 
     col33, col1, col2, col34 = st.columns(4)
 
-    col33.markdown("")
+    with col33:
+        st.subheader("Mahar Albaher Ali")
+        image_mahar = Image.open('raw_data/Mahar.jpg')
+        st.image(image_mahar, width=250)
 
     with col1:
         st.subheader("Antonella Navarro")
         image_antonella = Image.open('raw_data/Antonella.jpg')
         st.image(image_antonella, width=250)
         st.markdown('##')
-        st.subheader("Mahar Albaher Ali")
-        image_mahar = Image.open('raw_data/Mahar.jpg')
-        st.image(image_mahar, width=250)
+
 
     with col2:
         st.subheader("Daiana Rinja")
         image_daiana = Image.open('raw_data/Daiana.png')
         st.image(image_daiana, width=250)
         st.markdown('##')
+
+
+    with col34:
         st.subheader("Bence Tóth")
         image_bence = Image.open('raw_data/Bence.jpg')
         st.image(image_bence, width=250)
-
-    col34.markdown("")
 
 
 hide_st_style =" <style>footer {visibility: hidden;}</style>"
