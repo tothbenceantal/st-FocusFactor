@@ -1,7 +1,6 @@
 import streamlit as st
 import datetime
 import pandas as pd
-
 from PIL import Image
 
 
@@ -27,7 +26,7 @@ df = pd.read_csv("raw_data/FocusFactor-streamlit_test.csv")
 df.index = df["Date"].apply(lambda x: datetime.datetime.strptime(x, "%Y-%m-%d"))
 
 with tab1:
-    st.markdown("### The impact tweets \
+    st.markdown("### Tweets \
     on the Russian invasion of Ukraine compared to those about the World Cup")
     col99, col98, col2, col3 = st.columns(4)
     with col99:
@@ -42,7 +41,7 @@ with tab1:
 
 
     with col2:
-        chart_choice =  st.radio('Select a type the event to focus on',
+        chart_choice =  st.radio('Select the event to focus on',
                                  ('Ukraine','World Cup', 'Both'))
 
     filtered_df = df[df.index >= pd.Timestamp(d1)]
@@ -51,7 +50,7 @@ with tab1:
 
     #selection of content
     with col3:
-        rep_choice =  st.radio('Tweet count or impact score?',
+        rep_choice =  st.radio('Count of tweets or impact score?',
                             ('Count', 'Score', "Both"))
 
     # this makes the ukr charts
@@ -59,13 +58,13 @@ with tab1:
         if rep_choice == "Count":
             st.markdown\
                 (f"<h3 style='text-align: center; color: black;\
-                    '>Daily TWEET COUNTS</h3>", \
+                    '>Daily count of tweets</h3>", \
                 unsafe_allow_html=True)
             st.line_chart(filtered_df["UKR_Daily_Tweet_Count"])
         elif rep_choice == "Score":
             st.markdown\
                 (f"<h3 style='text-align: center; color: black;\
-                    '>Daily RELATIVE IMPACT SCORES</h3>", \
+                    '>Daily relative impact scores</h3>", \
                 unsafe_allow_html=True)
             st.line_chart(filtered_df["UKR_Daily_Relative_Impact_score"])
         else:
@@ -95,13 +94,13 @@ with tab1:
         if rep_choice == "Count":
             st.markdown\
                 (f"<h3 style='text-align: center; color: black;\
-                    '>Daily TWEET COUNTS</h3>", \
+                    '>Daily count of tweets</h3>", \
                 unsafe_allow_html=True)
             st.line_chart(filtered_df["WC_Daily_Tweet_Count"])
         elif rep_choice == "Score":
             st.markdown\
                 (f"<h3 style='text-align: center; color: black;\
-                    '>Daily RELATIVE IMPACT SCORES</h3>", \
+                    '>Daily relative impact scores</h3>", \
                 unsafe_allow_html=True)
             st.line_chart(filtered_df["WC_Daily_Relative_Impact_score"])
         else:
@@ -128,7 +127,7 @@ with tab1:
         if rep_choice == "Count":
             st.markdown\
                 (f"<h3 style='text-align: center; color: black;\
-                    '>Daily TWEET COUNTS</h3>", \
+                    '>Count of Tweets</h3>", \
                 unsafe_allow_html=True)
             col77, col78 = st.columns(2)
 
@@ -149,7 +148,7 @@ with tab1:
         elif rep_choice == "Score":
             st.markdown\
                 (f"<h3 style='text-align: center; color: black;\
-                    '>Daily RELATIVE IMPACT SCORES for...</h3>", \
+                    '>Daily relative impact scores for...</h3>", \
                 unsafe_allow_html=True)
             col79, col80 = st.columns(2)
             with col79:
