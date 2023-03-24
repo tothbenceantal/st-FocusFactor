@@ -240,6 +240,7 @@ with tab3:
     st.markdown\
         ("<h1 style='text-align: center; color: black;'>Meet the team</h1>", \
         unsafe_allow_html=True)
+    st.markdown("##")
 
     col33, col1, col2, col34 = st.columns(4)
 
